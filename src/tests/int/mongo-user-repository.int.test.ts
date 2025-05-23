@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import mongoose, { Model } from "mongoose";
 import { TestApp } from "../test-app"
 import { MongoUser } from "../../repositories/mongodb/mongo-user.model";
 import { MongoUserRepository } from "../../repositories/mongodb/mongo-user-repository";
@@ -50,6 +50,7 @@ describe("Mongo User Repository", () => {
                 id: E2eUsers.john.entity.props.id,
                 email: E2eUsers.john.entity.props.email,
                 password: E2eUsers.john.entity.props.password,
+                _id: expect.any(mongoose.Types.ObjectId),
                 __v: 0
             })
         })
