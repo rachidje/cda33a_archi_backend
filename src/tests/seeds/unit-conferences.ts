@@ -27,6 +27,6 @@ export const UnitConferences = {
         seats: 1,
         startDate: addDays(addHours(new Date(), 2), 4),
         endDate: addDays(addHours(new Date(), 2), 4),
-        organizerId: UnitUsers.alice.props.id,
+        organizerId: UnitUsers.charles.props.id,
     }),
 }
