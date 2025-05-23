@@ -4,13 +4,13 @@ export namespace MongoUser {
     export const CollectionName = 'users';
 
     export interface UserDocument extends Document {
-        _id: string
+        id: string
         email: string
         password: string
     }
 
     export const UserSchema = new Schema<UserDocument>({
-        _id: {type: String, required: true, unique: true},
+        id: {type: String, required: true, unique: true},
         email: {type: String, required: true, unique: true},
         password: {type: String, required: true}
     })

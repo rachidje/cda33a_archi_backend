@@ -33,7 +33,7 @@ describe("Feature: Book a Seat",  () => {
             const response = await request(app)
                                 .post(`/conference/${id}/book`)
                                 .set('Authorization', E2eUsers.bob.createJwtAuthorization())
-
+            
             expect(response.status).toBe(201)
 
             const bookingRepository = testApp.containerDI.resolve('bookingRepository')

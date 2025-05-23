@@ -5,9 +5,10 @@ import { InMemoryConferenceRepository } from "../repositories/in-memory-conferen
 import { FixedIDGenerator } from "../utils/fixed-id-generator";
 import { OrganizeConference } from "./organize-conference.usecase";
 import { User } from "../entities/user.entity";
+import { UnitUsers } from "../tests/seeds/unit-users";
 
 describe("Organize conference", () => {
-    const johnDoe = new User({id: "john-doe", email: 'johndoe@gmail.com', password: 'qwerty'})
+    const johnDoe = UnitUsers.john;
 
     let usecase: OrganizeConference;
     let repository: InMemoryConferenceRepository;

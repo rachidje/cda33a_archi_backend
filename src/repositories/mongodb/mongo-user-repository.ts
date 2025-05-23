@@ -6,7 +6,7 @@ import { MongoUser } from "./mongo-user.model";
 class UserMapper {
     static toCore(document: MongoUser.UserDocument): User {
         return new User({
-            id: document._id,
+            id: document.id,
             email: document.email,
             password: document.password
         })
@@ -14,7 +14,7 @@ class UserMapper {
 
     static toPersistence(user: User): InstanceType<typeof MongoUser.UserModel> {
         return new MongoUser.UserModel({
-            _id: user.props.id,
+            id: user.props.id,
             email: user.props.email,
             password: user.props.password
         })
@@ -32,7 +32,7 @@ export class MongoUserRepository implements IUserRepository {
     }
 
     async findById(id: string): Promise<User | null> {
-        const document = await this.model.findById(id);
+        const document = await this.model.findOne({id});
         if(!document) return null;
         return UserMapper.toCore(document);
     }

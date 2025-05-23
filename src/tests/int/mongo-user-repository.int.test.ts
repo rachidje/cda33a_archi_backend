@@ -17,7 +17,7 @@ describe("Mongo User Repository", () => {
         repository = new MongoUserRepository(model)
 
         const document = new model({
-                _id: E2eUsers.alice.entity.props.id,
+                id: E2eUsers.alice.entity.props.id,
                 email: E2eUsers.alice.entity.props.email,
                 password: E2eUsers.alice.entity.props.password,
             })
@@ -44,10 +44,10 @@ describe("Mongo User Repository", () => {
         it("should create a new user", async () => {
             await repository.save(E2eUsers.john.entity)
             
-            const document = await model.findOne({_id: E2eUsers.john.entity.props.id})
+            const document = await model.findOne({id: E2eUsers.john.entity.props.id})
 
             expect(document?.toObject()).toEqual({
-                _id: E2eUsers.john.entity.props.id,
+                id: E2eUsers.john.entity.props.id,
                 email: E2eUsers.john.entity.props.email,
                 password: E2eUsers.john.entity.props.password,
                 __v: 0
