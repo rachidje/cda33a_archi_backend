@@ -20,6 +20,13 @@ export const UnitUsers = {
         email: 'bob@gmail.com',
         password: 'qwerty'
     }),
+
+    charles: 
+    new User({
+        id: 'charles', 
+        email: 'charles@gmail.com',
+        password: 'qwerty'
+    }),
 }
 
 

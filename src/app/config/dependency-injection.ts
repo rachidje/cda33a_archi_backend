@@ -17,6 +17,7 @@ import { InMemoryUserRepository } from "../../repositories/in-memory-user-reposi
 import { ChangeDates } from "../../usecases/change-dates.usecase";
 import { IMailer } from "../../interfaces/mailer.interface";
 import { InMemoryMailer } from "../../utils/in-memory-mailer";
+import { BookSeat } from "../../usecases/book-seat.usecase";
 
 export interface Dependencies {
     conferenceRepository: IConferenceRepository
@@ -28,6 +29,7 @@ export interface Dependencies {
     organizeConference: OrganizeConference
     changeSeats: ChangeSeatUsecase
     changeDates: ChangeDates
+    bookSeat: BookSeat
 }
 
 const container = createContainer<Dependencies>()
@@ -54,6 +56,7 @@ container.register({
     organizeConference: asValue(new OrganizeConference(conferenceRepository, idGenerator)),
     changeSeats: asValue(new ChangeSeatUsecase(conferenceRepository, bookingRepository)),
     changeDates: asValue(new ChangeDates(conferenceRepository, mailer, bookingRepository, userRepository)),
+    bookSeat: asValue(new BookSeat(conferenceRepository, bookingRepository, idGenerator, mailer, userRepository))
 })
 
 export default container;

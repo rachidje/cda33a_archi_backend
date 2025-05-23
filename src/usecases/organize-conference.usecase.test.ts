@@ -10,12 +10,12 @@ describe("Organize conference", () => {
     const johnDoe = new User({id: "john-doe", email: 'johndoe@gmail.com', password: 'qwerty'})
 
     let usecase: OrganizeConference;
-    let repository: InMemoryConferenceRepository
-    let idGenerator : FixedIDGenerator
+    let repository: InMemoryConferenceRepository;
+    let idGenerator : FixedIDGenerator;
 
     beforeEach(() => {
         repository = new InMemoryConferenceRepository();
-        idGenerator = new FixedIDGenerator()
+        idGenerator = new FixedIDGenerator();
         usecase = new OrganizeConference(repository, idGenerator)
     })
 

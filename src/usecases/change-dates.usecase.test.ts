@@ -42,7 +42,7 @@ describe("Change Dates", () => {
             endDate: addDays(addHours(new Date(), 2), 4),
         }
         it("Should fail", async () => {
-            await expect(() => usecase.execute(payload)).rejects.toThrow("Conference does not exit")
+            await expect(() => usecase.execute(payload)).rejects.toThrow("Conference does not exist")
         })
     })
 

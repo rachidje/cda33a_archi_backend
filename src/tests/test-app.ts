@@ -7,6 +7,7 @@ import { jsonReponseMiddleware } from "../app/middlewares/json-response.middlewa
 import { ConferenceRoute } from "../app/routes/conference.routes";
 import { Container } from "../types/container.type";
 import { IFixture } from "./fixtures/fixture.interface";
+import { BookingRoute } from "../app/routes/booking.routes";
 
 export class TestApp {
     private app : Application
@@ -25,6 +26,7 @@ export class TestApp {
         this.app.use(express.urlencoded({extended: true}));
         this.app.use(jsonReponseMiddleware);
         this.app.use(ConferenceRoute);
+        this.app.use(BookingRoute);
         this.app.use(errorHandlerMiddleware);
     }
 
