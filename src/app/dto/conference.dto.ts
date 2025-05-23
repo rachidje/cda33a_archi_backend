@@ -23,3 +23,13 @@ export class ChangeSeatsDTO {
     @IsNumber()
     seats: number
 }
+
+export class ChangeDatesDTO {
+    @IsDateString()
+    @IsNotEmpty()
+    startDate: Date
+
+    @IsDateString()
+    @IsNotEmpty()
+    endDate: Date
+}

@@ -31,6 +31,12 @@ export class MongoUserRepository implements IUserRepository {
         return UserMapper.toCore(document)
     }
 
+    async findById(id: string): Promise<User | null> {
+        const document = await this.model.findById(id);
+        if(!document) return null;
+        return UserMapper.toCore(document);
+    }
+
     async save(user: User): Promise<void> {
         const document = UserMapper.toPersistence(user)
         await document.save();

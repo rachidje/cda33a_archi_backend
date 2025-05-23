@@ -9,4 +9,3 @@ export default {
     globalSetup: './tests/setup/global-setup.ts',
     globalTeardown: './tests/setup/global-teardown.ts'
 };
-    
